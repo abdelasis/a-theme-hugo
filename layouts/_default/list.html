@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {{partial "head.html" . }}
+
+</head>
+
+<body style="background: #F7F8FA">
+    <!-- section header -->
+    <div class="container-header" style="margin-bottom: 20px;">
+        {{partial "header.html" . }}
+    </div>
+    <!-- section banner -->
+    {{partial "banner.html" . }}
+    <!-- hugo variable content -->
+    <div class="container">
+        <div class="row" id="content">
+
+            <!-- hugo content  -->
+            {{ $paginator := .Paginate (where .Pages "Type" "post") 12 }}
+            <!-- paginator -->
+            {{ range $paginator.Pages }}
+            <div class="col-md-3 mb-4 d-flex">
+                <div class="card-colum">
+                    <div class="card">
+                        <img class="card-img-top" src="https://d33wubrfki0l68.cloudfront.net/f736f362be7dbe7b2422ab349e60f17be5461801/2b586/img/flutter/flutter.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{{.URL}}">{{.Title}}</a></h5>
+                            <p class="card-text">{{.Content | truncate 40}}</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+    <div class="container">
+        {{ partial "pagination.html" . }}
+    </div>
+    {{partial "footer.html"}}
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {{partial "head.html" .}}
+</head>
+
+<body>
+    <!-- section header -->
+    {{partial "header.html" .}}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>{{.Title}}</h1>
+            <h5>Diskripsi dari artikel yang dibuat</h5>
+            <ul class="meta-content">
+                <li>
+                    <p><i class="fas fa-user-circle"></i> Penulis:
+                    </p>
+                </li>
+                <li>
+                    <p><i class="far fa-calendar-alt"></i> Tanggal Terbit:</p>
+                </li>
+                <li>
+                    <p><i class="fas fa-calendar-alt"></i> Level: </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="row">
+                <div class="col-md-8">
+                    {{.Content}}
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {{partial "footer.html"}}
+</body>
+
+</html>
